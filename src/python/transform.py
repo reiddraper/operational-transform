@@ -83,6 +83,12 @@ def transform_many_to_many(a, b):
     return transformed
 
 def render(operations, state = None):
+    # TODO:
+    # this method shouldn't mutate the `state`
+    # variable. It should either make
+    # a copy or recreate the list
+    # from the start
+
     state = state or []
     for op in operations:
         if op['type'] == 'insert':
