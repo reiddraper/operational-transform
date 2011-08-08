@@ -1,3 +1,5 @@
+import copy
+
 def insert_helper(index, item):
     d = {'type' : 'insert', 'index' : index, 'item' : item}
     return d
@@ -89,7 +91,7 @@ def render(operations, state = None):
     # a copy or recreate the list
     # from the start
 
-    state = state or []
+    state = copy.copy(state) if state else []
     for op in operations:
         if op['type'] == 'insert':
             state.insert(op['index'], op['item'])
